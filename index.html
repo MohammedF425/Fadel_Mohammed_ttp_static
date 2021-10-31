@@ -11,11 +11,29 @@
         <h1>
             "My name is Mohammed Fadel and my favorite hobby is going to the gym and workingout."
         </h1>
-        <p>The current time is: <span id="datetime"></span></p>
-<script>
-var dt = new Date();
-document.getElementById("datetime").innerHTML = dt.toLocaleTimeString();
-</script>
+
+        <div id="time"></div>
+        <script type="text/javascript">
+            setInterval(displayTime,500);
+            function displayTime(){
+                var time = new Date();
+                var hrs = time.getHours();
+                var min = time.getMinutes();
+                var sec = time.getSeconds();
+
+                if(hrs>12)
+                    hrs-=12;
+                if(hrs==0)
+                    hrs=12;
+                if(hrs<10)
+                hrs="0"+hrs;
+                if(min<10)
+                min="0"+min;
+                if(sec<10)
+                sec="0"+sec;
+                document.getElementById('time').innerHTML = 'The current time '+hrs + ':' + min + ':' + sec;
+            }
+        </script>
     </body>
 
 <div id="txt"></div>
